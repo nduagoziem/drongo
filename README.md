@@ -1,10 +1,10 @@
-<p align="center"><img src="/public/storage/logo.png" alt="Drongo Logo" style="width: 250px"/></p>
+<p align="center"><img src="/storage/logo.png" alt="Drongo Logo" style="width: 250px"/></p>
 
 
 # Drongo
 Drongo is an innovative employee attendance management system that uses facial recognition and comparison to authenticate and record employee attendance. Inspired by the drongo bird, which acts as a security watchman for other animals, this application ensures accurate and secure attendance tracking.
 
-<div align="center"><img src="/public/storage/drongo.jpg"/></div>
+<div align="center"><img src="/storage/drongo.jpg"/></div>
 
 ## Features
 
