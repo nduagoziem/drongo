@@ -45,7 +45,7 @@ Drongo is an innovative employee attendance management system that uses facial r
     ```
 
 3. **Set up environment variables**:
-    Create a `.env` file in the root directory and add the necessary environment variables.
+    Create a `.env` file in the root directory and add the necessary environment variables. Use `.env.example` as a guide.
 
 4. **Run the application**:
     ```bash
