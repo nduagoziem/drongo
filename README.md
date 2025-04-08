@@ -61,6 +61,9 @@ Drongo is an innovative employee attendance management system that uses facial r
 3. **View Attendance Records**: Admins can view and manage attendance records.
 4. **Attendance Ranking**: View the ranking of employees based on their punctuality and lateness.
 
+## Demo
+This application is live. View the demo <a href="https://drongo.rf.gd">here</a>
+
 ## Contributing
 
 We welcome contributions to Drongo! Please follow these steps to contribute:

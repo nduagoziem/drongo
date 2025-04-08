@@ -74,20 +74,14 @@ class AttendancePageController extends Controller
                 ->whereBelongsTo($user)
                 ->get();
 
-            $facePPAPIService = new FacePPAPIService(
-                config('services.facepp.base_url'),
-                config('services.facepp.api_key'),
-                config('services.facepp.api_secret')
-            );
+            $facePPAPIService = new FacePPAPIService();
 
 
             foreach ($employees as $employee) {
                 $referenceImage = base64_encode(Storage::disk("local")->get($employee->employee_image));
                 $comparisonResult = $facePPAPIService->compareImageByBase64($capturedImage, $referenceImage);
 
-                $fixedThreshold = 90;
-
-                if (isset($comparisonResult['confidence']) && $comparisonResult['confidence'] >= $fixedThreshold) {
+                if (isset($comparisonResult['confidence']) && $comparisonResult['confidence'] >= 90) {
 
                     $remark = $signInTime->lessThan($lateStatusTime) ? "Early" : "Late";
 
@@ -128,11 +122,7 @@ class AttendancePageController extends Controller
                 ->get();
 
             // Instantiate the FacePPAPIService
-            $facePPAPIService = new FacePPAPIService(
-                config('services.facepp.base_url'),
-                config('services.facepp.api_key'),
-                config('services.facepp.api_secret')
-            );
+            $facePPAPIService = new FacePPAPIService();
 
             foreach ($employees as $employee) {
                 $referenceImage = base64_encode(Storage::disk("local")->get($employee->employee_image));

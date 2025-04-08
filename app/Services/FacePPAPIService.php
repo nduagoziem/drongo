@@ -6,22 +6,12 @@ use Illuminate\Support\Facades\Http;
 
 class FacePPAPIService
 {
-    private $base_url;
-    private $api_key;
-    private $api_secret;
-
-    public function __construct($base_url, $api_key, $api_secret)
-    {
-        $this->base_url = $base_url;
-        $this->api_key = $api_key;
-        $this->api_secret = $api_secret;
-    }
 
     public function compareImageByBase64($comparingImage, $referenceImage)
     {
-        $response = Http::asForm()->post($this->base_url, [ // asForm method is required
-            'api_key' => $this->api_key,
-            'api_secret' => $this->api_secret,
+        $response = Http::asForm()->post(config('services.facepp.base_url'), [ // asForm method is required
+            'api_key' => config('services.facepp.api_key'),
+            'api_secret' => config('services.facepp.api_secret'),
             'image_base64_1' => $comparingImage,
             'image_base64_2' => $referenceImage,
         ]);

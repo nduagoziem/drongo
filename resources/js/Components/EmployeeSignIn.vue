@@ -75,7 +75,7 @@ const signIn = async () => {
             activeElement.value = "canvas";
             const cxt = canvas.value;
             const context = cxt.getContext("2d")
-            context.drawImage(video.value, 50, 30, 200, 100); // Correctly reference video.value
+            context.drawImage(video.value, 50, 30, 200, 100);
 
             const imageData = canvas.value.toDataURL("image/png");
             form.employee_image = imageData;

@@ -1,21 +1,29 @@
 <script setup>
 import { Link, usePage } from "@inertiajs/vue3";
+import { ref } from "vue";
 
 const { url } = usePage();
+const isSidebarOpen = ref(false);
+
+const toggleSidebar = () => {
+    isSidebarOpen.value = !isSidebarOpen.value;
+};
+
+const closeSidebar = () => {
+    isSidebarOpen.value = false;
+};
 </script>
 
 <template>
     <button
-        data-drawer-target="separator-sidebar"
-        data-drawer-toggle="separator-sidebar"
+        @click="toggleSidebar"
         aria-controls="separator-sidebar"
         type="button"
-        class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden"
     >
         <span class="sr-only">Open sidebar</span>
         <svg
             class="w-6 h-6"
-            
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -28,10 +36,19 @@ const { url } = usePage();
         </svg>
     </button>
 
+    <div
+        v-if="isSidebarOpen"
+        @click="closeSidebar"
+        class="fixed inset-0 z-30 bg-black bg-opacity-50 sm:hidden"
+    ></div>
+
     <aside
         id="separator-sidebar"
-        class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 p-4  pl-5 bg-white border border-gray-100"
-
+        :class="{
+            '-translate-x-full': !isSidebarOpen,
+            'translate-x-0': isSidebarOpen
+        }"
+        class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform sm:translate-x-0 p-4 pl-5 bg-white border border-gray-100"
     >
         <div class="h-full px-3 py-4 overflow-y-auto">
             <ul class="space-y-2 font-medium">
@@ -46,7 +63,6 @@ const { url } = usePage();
                     >
                         <svg
                             class="shrink-0 w-4 h-4 transition duration-75 group-hover:text-blue-500"
-                            
                             xmlns="http://www.w3.org/2000/svg"
                             fill="currentColor"
                             viewBox="0 0 22 21"
@@ -72,7 +88,6 @@ const { url } = usePage();
                     >
                         <svg
                             class="shrink-0 w-4 h-4 transition duration-75 group-hover:text-blue-500"
-                            
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
                             height="24"
@@ -99,7 +114,6 @@ const { url } = usePage();
                     >
                         <svg
                             class="shrink-0 w-4 h-4 transition duration-75 group-hover:text-blue-500"
-                            
                             xmlns="http://www.w3.org/2000/svg"
                             fill="currentColor"
                             viewBox="0 0 20 18"
@@ -122,7 +136,6 @@ const { url } = usePage();
                     >
                         <svg
                             class="shrink-0 w-4 h-4 transition duration-75 group-hover:text-blue-500"
-                            
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
                             height="24"
@@ -153,7 +166,6 @@ const { url } = usePage();
                     >
                         <svg
                             class="shrink-0 w-4 h-4 transition duration-75 group-hover:text-blue-500"
-                            
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
                             height="24"
@@ -184,7 +196,6 @@ const { url } = usePage();
                     >
                         <svg
                             class="shrink-0 w-4 h-4 transition duration-75 group-hover:text-blue-500"
-                            
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
                             height="24"
@@ -215,7 +226,6 @@ const { url } = usePage();
                     >
                         <svg
                             class="shrink-0 w-4 h-4 transition duration-75 group-hover:text-blue-500"
-                            
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
                             height="24"
@@ -242,7 +252,6 @@ const { url } = usePage();
                     >
                         <svg
                             class="shrink-0 w-4 h-4 transition duration-75 group-hover:text-blue-500"
-                            
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
                             height="24"

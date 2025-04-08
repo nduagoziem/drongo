@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use Illuminate\Http\Request;
-use App\Models\SignoutHistory;
+use App\Models\SignOutHistory;
 use Illuminate\Support\Facades\Auth;
 
 class SignOutHistoryController extends Controller

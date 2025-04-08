@@ -1,12 +1,7 @@
 <?php
 
-use App\Models\User;
-// use Illuminate\Foundation\Application;
 use Inertia\Inertia;
-// use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Models\Attendance;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\EmployeesController;
