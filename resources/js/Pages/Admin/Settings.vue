@@ -6,11 +6,13 @@ import { ref } from "vue";
 import { useToast } from "vue-toast-notification";
 import "vue-toast-notification/dist/theme-sugar.css";
 
+const appUrl = import.meta.env.VITE_APP_URL
+
 const props = defineProps({
     user_uid: String
 })
 
-const inputText = ref("http://127.0.0.1:8000/attendance/" + props.user_uid);
+const inputText = ref(`${appUrl}/attendance/` + props.user_uid);
 const inputTime = ref("");
 const toast = useToast();
 
