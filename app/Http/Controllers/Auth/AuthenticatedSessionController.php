@@ -33,6 +33,10 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        if (!$request->user()->hasVerifiedEmail()) {
+            return redirect()->intended(route('verification.notice', absolute: false).'?verified=1');
+        }
+
         return redirect()->intended(route('dashboard', absolute: false));
     }
 
